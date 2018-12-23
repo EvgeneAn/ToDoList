@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.task.label }}<br>
+            {{ form.task(size=32) }}
+        </p>
+        <p>
+            {{ form.description.label }}<br>
+            {{ form.description }}
+        </p>
+        <!-- <p>
+            {{ form.finish_datetime.label }}<br>
+            {{ form.finish_datetime }}<br>
+            <span>Записывать дату в виде: Jun 22 2019 12:45</span>
+        </p> -->
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

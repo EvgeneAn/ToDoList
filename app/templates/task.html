@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{{task.task}}</h2>
+    <p>{{task.description}}</p>
+    <p>Дата создания: {{task.start_datetime}}</p>
+    {% if task.done %}
+        <p>Задача выполнена</p>
+        <a href="/task_drop/{{task.id}}">Удалить задачу</a>
+    {% else %}
+        <p>Задача не выполнена</p>
+        <form action="" method="post">
+            {{form.hidden_tag()}}
+            <p>
+                {{form.done.label}}<br>
+                {{form.done}}<br>
+                {{form.submit()}}
+            </p>
+        </form>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+
+{%block content%}
+    <h1>Лист твоих заданий</h1>
+    <ul>
+        {%for task in tasks%}
+            <li><a href="/task/{{task.id}}">{{task.task}}</a>
+            {%if task.done%} - Выполнено {%else%} - Не выполнено {%endif%}
+            </li>
+        {%endfor%}
+    </ul>
+{%endblock%}
