@@ -21,7 +21,7 @@ def task(task_id):
     form = TaskDone()
     task = Task.query.filter_by(id=task_id).first()
     if form.validate_on_submit():
-        task.done = True
+        task.done_flip()
         flash('Вы выполнили задачу')
         db.session.add(task)
         db.session.commit()
