@@ -8,6 +8,8 @@ class Task(db.Model):
     done = db.Column(db.Boolean, default=False)
     start_datetime = db.Column(db.DateTime, default=datetime.utcnow)
 
-
+    def done_flip(self):
+        return self.done = not self.done
+    
     def __repr__(self):
         return 'Task {}'.format(self.task)
