@@ -26,9 +26,6 @@ def task(task_id):
         db.session.add(task)
         db.session.commit()
         return render_template('task.html', title='Task', task=task)
-    task_datetime = '{}.{}.{}  {}:{}'.format(task.start_datetime.day,\
-            task.start_datetime.month, task.start_datetime.year, task.start_datetime.hour, task.start_datetime.minute)
-    task.start_datetime = task_datetime
     return render_template('task.html', title='Task', task=task, form=form)
 
 
