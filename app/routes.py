@@ -20,15 +20,15 @@ def index():
 def task(task_id):
     form = TaskDone()
     task = Task.query.filter_by(id=task_id).first()
-    task_datetime = '{}.{}.{}  {}:{}'.format(task.start_datetime.day,\
-            task.start_datetime.month, task.start_datetime.year, task.start_datetime.hour, task.start_datetime.minute)
-    task.start_datetime = task_datetime
     if form.validate_on_submit():
         task.done_flip()
         flash('Вы выполнили задачу')
         db.session.add(task)
         db.session.commit()
         return render_template('task.html', title='Task', task=task)
+    task_datetime = '{}.{}.{}  {}:{}'.format(task.start_datetime.day,\
+            task.start_datetime.month, task.start_datetime.year, task.start_datetime.hour, task.start_datetime.minute)
+    task.start_datetime = task_datetime
     return render_template('task.html', title='Task', task=task, form=form)
 
 
